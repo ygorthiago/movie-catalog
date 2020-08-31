@@ -80,7 +80,7 @@ export const MovieTitle = styled.div`
 
 export const MovieRating = styled.div`
   margin-top: 28px;
-  margin-left: 75%;
+  margin-left: 73%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,7 +128,7 @@ export const Sinopse = styled.main`
 `;
 
 export const ReleaseDate = styled.div`
-  margin-left: 60%;
+  margin-left: 55%;
   
   span {
     font-family: Abel;

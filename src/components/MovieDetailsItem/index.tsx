@@ -60,7 +60,11 @@ function MovieDetailsItem() {
       }
     }); 
    
-  api.get(`/movie/${movie.id}`)
+  api.get(`/movie/${movie.id}`, {
+    params: {
+      append_to_response: 'videos'
+    }
+  })
     .then(response => { 
       if(!movieInformations){
         setMovieInformations([
@@ -72,6 +76,9 @@ function MovieDetailsItem() {
           {title: 'Lucro', content: (response.data.revenue === 0 || response.data.budget === 0) ?  '--' : (response.data.revenue - response.data.budget).toLocaleString('en-us', {style: 'currency', currency: 'USD'})}
         ]
         );
+        if (response.data.videos.results.length > 0) {
+          setTrailerKey(response.data.videos.results[0].key);
+        }
       }
     });  
 
@@ -94,10 +101,12 @@ function MovieDetailsItem() {
             <hr/>
             <p>{movie.overview}</p>        
           </SinopseSection>        
-          <BackdropImage 
-              src= {movie.backdrop && `https://image.tmdb.org/t/p/w500/${movie.backdrop}`} 
-              alt="movie-poster"
-            />
+          { movie.backdrop !== null &&
+            <BackdropImage 
+              src= {`https://image.tmdb.org/t/p/w500/${movie.backdrop}`} 
+              alt="movie-backdrop"
+            />          
+          }
           <InformationSection>
           <h1>Informações</h1> 
           <hr/>

@@ -7,7 +7,7 @@ export const MovieDetailsContainer = styled.article`
     border: 1px solid #00e8e4;
     background-color: #00e8e4;
   }
-  section, footer {
+  section {
     margin: 20px 30px;
     h1 {
     font-family: Abel;
@@ -92,8 +92,12 @@ export const InformationList = styled.ul`
   padding: 0px;
   position: initial;
   margin-bottom: 80px;
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+  }
+  @media (max-width: 410px) {
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 20px;
   }
 `;
@@ -123,20 +127,24 @@ export const InformationItem = styled.li`
 export const FooterSection = styled.footer`
   display: flex;
   justify-content: space-between;
+  margin: 20px 20px;
+  @media (max-width: 400px) {
+    margin: 20px 5px;
+  }
 `;
 
 export const GenreList = styled.div`
   display: flex;  
   grid-template-columns: repeat(4, 1fr);
   height: 40px;
-  @media (max-width: 800px) {
+  @media (max-width: 950px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr)
   }
-  @media(max-width: 500px) {
+  /* @media(max-width: 500px) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);    
-  }
+  } */
 `;
 
 export const GenreItem = styled.a`
@@ -157,7 +165,10 @@ export const GenreItem = styled.a`
   font-family: Abel;
   font-weight: bold;
   font-size: 16px;
-  @media (max-width: 800px) {
+  @media (max-width: 950px) {
+    font-size: 14px;
+  }
+  @media (max-width: 400px) {
     font-size: 14px;
   }
 `;
@@ -180,7 +191,7 @@ export const MovieRating = styled.div`
   position: absolute;
   pointer-events: none;
   width: 112px;
-  height: 111px;
+  height: 112px;
   border-radius: 50%;
   }
 
@@ -188,6 +199,10 @@ export const MovieRating = styled.div`
     color: #00e8e4;
     font-size: 35px;
     font-family: Abel;
+  }
+  @media(max-width: 600px) {
+    margin-top: 0px;
+    margin-bottom: 50px;
   }
 `;
 

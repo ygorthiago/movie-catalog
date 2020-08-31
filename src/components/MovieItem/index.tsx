@@ -84,10 +84,12 @@ const MovieItem: React.FC<MovieItemProps> = ({movie}) => {
             <span>{formatDate(movie.release_date)}</span>
           </ReleaseDate>
         </header>
-        <BackdropImage 
-          src= {movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : ''} 
-          alt="movie-poster"
-        />
+        {movie.backdrop_path !== null && 
+          <BackdropImage 
+            src= {movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : ''} 
+            alt="movie-backdrop"
+          />
+        }
         <Sinopse>       
           {movie.overview}
         </Sinopse>

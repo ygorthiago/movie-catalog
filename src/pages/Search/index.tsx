@@ -2,13 +2,16 @@ import React, { useState, useEffect, FormEvent } from 'react';
 import PageHeader from '../../components/PageHeader';
 import SearchInput from '../../components/SearchInput';
 import MovieItem, { Movie } from '../../components/MovieItem';
+import Pagination from '../../components/Pagination';
 
-import { Main, Pagination, PaginationButton, PaginationItem } from './styles';
+import { Main } from './styles';
 import api from '../../services/api';
 
 function Search() {
   const [movieList, setMovieList] = useState([]);
   const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesPerPage = 5;
 
   useEffect(() => {
     api.get('/movie/popular', {
@@ -16,6 +19,7 @@ function Search() {
     })
     .then(response => {
       setMovieList(response.data.results);
+      console.log(response.data.results)
     })
   }, []); 
 
@@ -28,8 +32,14 @@ function Search() {
       }
     });
 
-    setMovieList(response.data.results);
-  }
+    setMovieList(response.data.results);    
+  } 
+
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = movieList.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -42,9 +52,8 @@ function Search() {
             value={search}
             onChange={(e) => { setSearch(e.target.value) }}
           />          
-        </form>
-
-        {movieList.map((movie: Movie) => {
+        </form>      
+        {currentMovies.map((movie: Movie) => {
           return (
             <MovieItem 
               key={movie.id}
@@ -52,6 +61,12 @@ function Search() {
             />
           )
         })}
+        <Pagination
+          moviesPerPage={moviesPerPage}
+          totalMovies={movieList.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </Main>
 
     </>
