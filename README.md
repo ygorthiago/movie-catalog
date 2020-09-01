@@ -2,14 +2,8 @@
 Uma forma simples de buscar seus filmes preferidos, seja por nome ou por gênero. 
 
 ## 💻 Preview
- - Desktop
   <h1 align="center">    
     <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview.gif" />    
-  </h1>
-
- - Mobile
-  <h1 align="center">        
-    <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview-mobile.gif" width="250px"  />
   </h1>
 
 ## 🎲 Rodando o projeto
