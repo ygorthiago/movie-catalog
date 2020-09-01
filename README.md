@@ -2,9 +2,15 @@
 Uma forma simples de buscar seus filmes preferidos, seja por nome ou por gênero. 
 
 ## 💻 Preview
-<h1 align="center">
-    <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview.gif"  />
-</h1>
+ - Desktop
+  <h1 align="center">    
+    <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview.gif" />    
+  </h1>
+
+ - Mobile
+  <h1 align="center">        
+    <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview-mobile.gif" width="250px"  />
+  </h1>
 
 ## 🎲 Rodando o projeto
 
@@ -34,7 +40,6 @@ Uma forma simples de buscar seus filmes preferidos, seja por nome ou por gênero
   ```
 
 ### Feito isso, basta acessar a aplicação e buscar seus filmes preferidos! 
-#
 
 ## 🚀 Tecnologias utilizadas
 Para o desenvolvimento deste projeto foram utilizados:
@@ -43,6 +48,7 @@ Para o desenvolvimento deste projeto foram utilizados:
  - Styled Components
  - Axios
 
+#
 
 <footer>
   <h4 align="center">
