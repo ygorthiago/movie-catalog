@@ -145,6 +145,9 @@ export const Category = styled.span`
   font-family: Abel;
   font-weight: bold;
   margin-bottom: 10px;
+  @media(max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 export const GenreList = styled.div`
