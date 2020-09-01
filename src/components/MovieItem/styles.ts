@@ -6,9 +6,11 @@ export const MovieCard = styled(Link)`
   background-color: #ebebeb;
   text-decoration: none;
   margin-bottom: 40px;
+  transition: opacity 0.5s;
 
   &:hover{
     outline: 3px solid #0b4c75;
+    opacity: 0.9;
   }
 
   @media (min-width: 850px) {
@@ -37,10 +39,10 @@ export const BackdropImage = styled.img`
   display: flex;
   width: 100%;
   height: 30%;
+  
   @media (min-width: 850px) {
     display: none;
-    }
-  
+    }  
 `;
 
 
@@ -65,10 +67,12 @@ export const MovieTitle = styled.div`
   color: #00e8e4;
   font-weight: lighter;
   font-size: 21px;
+
   @media (min-width: 850px) {
       margin-left: 100px;
       font-size: 27px
     }
+    
   @media (min-width: 890px) {
       margin-left: 100px;
       font-size: 27px
@@ -90,18 +94,7 @@ export const MovieRating = styled.div`
   height: 50px;
   border-radius: 50%;
   position: absolute;
-
-  &:before {
-  background: none;
-  border: 4px solid #116193;
-  content: "";
-  display: block;
-  position: absolute;
-  pointer-events: none;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  }
+  box-shadow: 0 0 0 3px #116193;
 
   span {
     color: #00e8e4;

@@ -128,7 +128,7 @@ export const FooterSection = styled.footer`
   display: flex;
   justify-content: space-between;
   margin: 20px 20px;
-  @media (max-width: 500px) {
+  @media (max-width: 400px) {
     margin: 20px 5px;
   }
 `;
@@ -141,10 +141,6 @@ export const GenreList = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr)
   }
-  /* @media(max-width: 500px) {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);    
-  } */
 `;
 
 export const GenreItem = styled.a`
@@ -177,23 +173,13 @@ export const MovieRating = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 10px solid #00e8e4;
-  background-color: #116193;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   margin-top: 20px;
-  &:before {
-  background: none;
-  border: 4px solid #116193;
-  content: "";
-  display: block;
-  position: absolute;
-  pointer-events: none;
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  }
+  border: 10px solid #00e8e4;
+  background-color: #116193;
+  box-shadow: 0 0 0 5px #116193;
 
   span {
     color: #00e8e4;

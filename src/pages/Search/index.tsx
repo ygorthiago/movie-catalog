@@ -33,8 +33,9 @@ function Search() {
         return -1;
       return 0;
     }
+    const genreId = await selectGenre(search);
 
-    if(selectGenre(search) === undefined){
+    if(genreId === undefined){
       const response = await api.get('/search/movie', {
         params: {
           query: search
@@ -42,8 +43,7 @@ function Search() {
         
       });
       setMovieList(response.data.results.sort(comparePopularity));
-    } else {
-      const genreId = selectGenre(search);
+    } else {      
       const response = await api.get('/discover/movie', {
         params: {
           with_genres: genreId
