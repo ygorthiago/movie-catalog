@@ -1,4 +1,4 @@
-import isoLangs from './languages.json';
+import isoLangs from './datas/languages.json';
 
 function translateLanguage(lang: any) {
   const langs: any = isoLangs;

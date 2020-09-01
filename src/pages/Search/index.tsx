@@ -6,6 +6,7 @@ import Pagination from '../../components/Pagination';
 
 import { Main, MovieNotFound } from './styles';
 import api from '../../services/api';
+import selectGenre from '../../utils/selectGenre';
 
 function Search() {
   const [movieList, setMovieList] = useState([]);
@@ -25,21 +26,32 @@ function Search() {
   async function searchMovies(e: FormEvent) {
     e.preventDefault();
 
-    const response = await api.get('/search/movie', {
-      params: {
-        query: search
-      }
-    });
-
-    function compare(a: any ,b: any) {
+    function comparePopularity(a: any ,b: any) {
       if (a.popularity < b.popularity)
          return 1;
       if (a.popularity > b.popularity)
         return -1;
       return 0;
     }
-    
-    setMovieList(response.data.results.sort(compare));
+
+    if(selectGenre(search) === undefined){
+      const response = await api.get('/search/movie', {
+        params: {
+          query: search
+        }
+        
+      });
+      setMovieList(response.data.results.sort(comparePopularity));
+    } else {
+      const genreId = selectGenre(search);
+      const response = await api.get('/discover/movie', {
+        params: {
+          with_genres: genreId
+        }
+      });
+      setMovieList(response.data.results.sort(comparePopularity));
+    }
+        
     setCurrentPage(1);    
   } 
 
