@@ -25,7 +25,10 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate, currentPage }: Pagin
             <PageNumber 
               isSelected={number === currentPage}
               // to=""
-              onClick={() => paginate(number)}
+              onClick={() => {
+                paginate(number); 
+                window.scrollTo(0, 0);
+              }}
             >
               {number}
             </PageNumber>

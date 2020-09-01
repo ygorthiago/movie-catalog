@@ -19,7 +19,6 @@ function Search() {
     })
     .then(response => {
       setMovieList(response.data.results);
-      console.log(response.data.results)
     })
   }, []); 
 
@@ -32,7 +31,16 @@ function Search() {
       }
     });
 
-    setMovieList(response.data.results);
+    function compare(a: any ,b: any) {
+      if (a.popularity < b.popularity)
+         return 1;
+      if (a.popularity > b.popularity)
+        return -1;
+      return 0;
+    }
+    
+    setMovieList(response.data.results.sort(compare));
+    setCurrentPage(1);    
   } 
 
   const indexOfLastMovie = currentPage * moviesPerPage;
@@ -68,7 +76,7 @@ function Search() {
           moviesPerPage={moviesPerPage}
           totalMovies={movieList.length}
           paginate={paginate}
-          currentPage={currentPage}
+          currentPage={currentPage}          
         />
       </Main>
 

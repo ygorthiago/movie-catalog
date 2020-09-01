@@ -96,7 +96,7 @@ export const InformationList = styled.ul`
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 20px;
   }
-  @media (max-width: 410px) {
+  @media (max-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 20px;
   }
@@ -128,7 +128,7 @@ export const FooterSection = styled.footer`
   display: flex;
   justify-content: space-between;
   margin: 20px 20px;
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     margin: 20px 5px;
   }
 `;

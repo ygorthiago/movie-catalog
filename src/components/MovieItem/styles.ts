@@ -71,7 +71,7 @@ export const MovieTitle = styled.div`
     }
   @media (min-width: 890px) {
       margin-left: 100px;
-      font-size: 30px
+      font-size: 27px
     }
   }
 
