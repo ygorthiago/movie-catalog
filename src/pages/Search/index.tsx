@@ -4,7 +4,7 @@ import SearchInput from '../../components/SearchInput';
 import MovieItem, { Movie } from '../../components/MovieItem';
 import Pagination from '../../components/Pagination';
 
-import { Main } from './styles';
+import { Main, MovieNotFound } from './styles';
 import api from '../../services/api';
 
 function Search() {
@@ -32,7 +32,7 @@ function Search() {
       }
     });
 
-    setMovieList(response.data.results);    
+    setMovieList(response.data.results);
   } 
 
   const indexOfLastMovie = currentPage * moviesPerPage;
@@ -53,14 +53,17 @@ function Search() {
             onChange={(e) => { setSearch(e.target.value) }}
           />          
         </form>      
-        {currentMovies.map((movie: Movie) => {
+        {currentMovies.length > 0 
+        ? currentMovies.map((movie: Movie) => {
           return (
             <MovieItem 
               key={movie.id}
               movie={ movie }
             />
           )
-        })}
+        })
+        : <MovieNotFound>Nenhum filme encontrado 😥</MovieNotFound>
+      }
         <Pagination
           moviesPerPage={moviesPerPage}
           totalMovies={movieList.length}

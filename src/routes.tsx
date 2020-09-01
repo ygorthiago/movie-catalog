@@ -1,14 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Search from '../src/pages/Search';
 import MovieDetails from '../src/pages/MovieDetails';
+import Page404 from './pages/Page404';
 
 function Routes() {
   return (    
     <BrowserRouter>
-      <Route path='/' exact component={Search} />
-      <Route path='/movie-details' component={MovieDetails} />
+      <Switch>
+        <Route path='/' exact component={Search} />
+        <Route path='/movie-details' component={MovieDetails} />
+        <Route component={Page404}/>
+      </Switch>
     </BrowserRouter>
   );
 }

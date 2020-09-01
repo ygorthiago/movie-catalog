@@ -10,23 +10,8 @@ export const Main = styled.main`
   }
 `;
 
-export const Pagination = styled.div`
-  display: flex;
-  min-width: 500px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const PaginationButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const PaginationItem = styled.div`
-  margin: 0 10px;
+export const MovieNotFound = styled.h1`
   font-family: Abel;
+  text-align: center;
   color: #116193;
-  font-weight: bold;
-  font-size: 25px;
 `;

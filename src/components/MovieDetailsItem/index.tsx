@@ -86,9 +86,9 @@ function MovieDetailsItem() {
     <> 
     <MovieDetailsContainer className="movie-details-container">          
     <BackButtonContainer>
-    <BackButton to="/">
-        <FiArrowLeft /> Página inicial
-    </BackButton>
+      <BackButton to="/">
+          <FiArrowLeft /> Página inicial
+      </BackButton>
     </BackButtonContainer>
       <DetailsHeader className="details-header">
         <h1>{movie.title}</h1>
