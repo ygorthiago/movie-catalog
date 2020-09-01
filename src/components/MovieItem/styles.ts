@@ -132,12 +132,7 @@ export const ReleaseDate = styled.div`
   @media (min-width: 850px) {
     margin-left: 100px;
   }
-`;
-
-export const MovieCategories = styled.footer`
-    margin: 50px 20px;
-    width: 90%;  
-`;
+`
 
 export const Category = styled.span`
   padding: 5px;
@@ -149,4 +144,15 @@ export const Category = styled.span`
   text-decoration: none;
   font-family: Abel;
   font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const GenreList = styled.div`
+  margin: 50px 20px;
+  width: 90%; 
+  @media (max-width: 500px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
 `;

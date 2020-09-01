@@ -10,11 +10,11 @@ import {
   MovieTitle,
   MovieRating,
   ReleaseDate,
-  MovieCategories,
   Sinopse,
   PosterImage,
-  Category, 
-  BackdropImage} from './styles';
+  Category,
+  BackdropImage,
+  GenreList} from './styles';
 
 export interface Movie {
   id: number;
@@ -93,14 +93,14 @@ const MovieItem: React.FC<MovieItemProps> = ({movie}) => {
         <Sinopse>       
           {movie.overview}
         </Sinopse>
-        <MovieCategories>
+        <GenreList>
           {movie.genre_ids.map(genre => {            
               let genresName = genreList.find((gen: GenreList) => gen.id === genre);
               if(genresName){
                 return <Category key={genre}>{genresName.name}</Category>              
-              }            
+              }
           })}
-        </MovieCategories>
+        </GenreList>
       </MovieDescriptionContainer>
     </MovieCard>
   );
