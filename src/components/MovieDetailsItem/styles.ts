@@ -35,6 +35,11 @@ export const BackButton = styled(Link)`
   width:130px;
   padding: 20px;
   background-color: none;
+  transition: color 0.5s;
+
+  &:hover{
+   color: #137dbf;
+  }
 `;
 
 export const Main = styled.main`

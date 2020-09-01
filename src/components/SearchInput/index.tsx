@@ -8,6 +8,7 @@ const SearchInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({...rest})
       <input
         type="text"
         id="search"
+        autoComplete="off"
         placeholder="Busque um filme por nome ou gênero..."
         {...rest}
       />
