@@ -44,43 +44,35 @@ function MovieDetailsItem() {
     if(location.state) {
       setMovie(location.state);
     }
-  }, []);
 
-  useEffect(() => {
     api.get('/genre/movie/list')
       .then(response => {
         setGenreList(response.data.genres);
-      });      
-    }, []);
-  
-  api.get(`/movie/${movie.id}/videos`)
-    .then(response => {      
-      if (response.data.results.length > 0) {
-        setTrailerKey(response.data.results[0].key);        
+      }); 
+      if (movie.id) {
+        api.get(`/movie/${movie.id}`, {
+          params: {
+            append_to_response: 'videos'
+          }
+        })
+          .then(response => { 
+            if(!movieInformations){
+              setMovieInformations([
+                {title: 'Situação', content: translateStatus(response.data.status)},
+                {title: 'Idioma', content: translateLanguage(response.data.original_language)},
+                {title: 'Duração', content: convertMinsToHrs(response.data.runtime)},
+                {title: 'Orçamento', content: response.data.budget !== 0 ?  response.data.budget.toLocaleString('en-us', {style: 'currency', currency: 'USD'}) : '--'},
+                {title: 'Receita', content: response.data.revenue !== 0 ? response.data.revenue.toLocaleString('en-us', {style: 'currency', currency: 'USD'}) : '--'},
+                {title: 'Lucro', content: (response.data.revenue === 0 || response.data.budget === 0) ?  '--' : (response.data.revenue - response.data.budget).toLocaleString('en-us', {style: 'currency', currency: 'USD'})}
+              ]
+              );
+              if (response.data.videos.results.length > 0) {
+                setTrailerKey(response.data.videos.results[0].key);
+              }
+            }
+          }); 
       }
-    }); 
-   
-  api.get(`/movie/${movie.id}`, {
-    params: {
-      append_to_response: 'videos'
-    }
-  })
-    .then(response => { 
-      if(!movieInformations){
-        setMovieInformations([
-          {title: 'Situação', content: translateStatus(response.data.status)},
-          {title: 'Idioma', content: translateLanguage(response.data.original_language)},
-          {title: 'Duração', content: convertMinsToHrs(response.data.runtime)},
-          {title: 'Orçamento', content: response.data.budget !== 0 ?  response.data.budget.toLocaleString('en-us', {style: 'currency', currency: 'USD'}) : '--'},
-          {title: 'Receita', content: response.data.revenue !== 0 ? response.data.revenue.toLocaleString('en-us', {style: 'currency', currency: 'USD'}) : '--'},
-          {title: 'Lucro', content: (response.data.revenue === 0 || response.data.budget === 0) ?  '--' : (response.data.revenue - response.data.budget).toLocaleString('en-us', {style: 'currency', currency: 'USD'})}
-        ]
-        );
-        if (response.data.videos.results.length > 0) {
-          setTrailerKey(response.data.videos.results[0].key);
-        }
-      }
-    });  
+  }, [movie]);
 
   return (
     <> 
