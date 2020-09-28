@@ -12,6 +12,7 @@ const SearchInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({...rest})
         placeholder="Busque um filme por nome ou gênero..."
         {...rest}
       />
+      <button type="submit">Buscar</button>
     </SearchInputSection>
   );
 }
