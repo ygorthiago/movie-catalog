@@ -1,9 +1,15 @@
 # Movie Catalog 🎬
 Uma forma simples de buscar seus filmes preferidos, seja por nome ou por gênero. 
 
-## 💻 Preview
-  <h1 align="center">    
+## Preview
+### 💻 Desktop
+  <h1 align="center">
     <img alt="Movie catalog" title="Movie Catalog" src="./src/assets/preview.gif" />    
+  </h1>
+  
+### 📱 Mobile
+  <h1 align="center">    
+    <img alt="Movie catalog" title="Movie Catalog" src="https://i.ibb.co/WKL18Qc/mobile-preview.gif" />    
   </h1>
 
 ## 🎲 Rodando o projeto
