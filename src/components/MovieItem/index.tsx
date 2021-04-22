@@ -99,6 +99,8 @@ const MovieItem: React.FC<MovieItemProps> = ({movie}) => {
               if(genresName){
                 return <Category key={genre}>{genresName.name}</Category>              
               }
+
+              return;
           })}
         </GenreList>
       </MovieDescriptionContainer>
