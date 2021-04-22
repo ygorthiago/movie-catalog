@@ -82,7 +82,7 @@ function Search() {
             />
           )
         })
-        : <MovieNotFound>Nenhum filme encontrado 😥</MovieNotFound>
+        : <MovieNotFound>Nenhum filme encontrado <span role="img" aria-label="sad-face">😥</span></MovieNotFound>
       }
         <Pagination
           moviesPerPage={moviesPerPage}
