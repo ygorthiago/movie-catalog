@@ -72,7 +72,7 @@ function MovieDetailsItem() {
             }
           }); 
       }
-  }, [movie]);
+  }, [movie, location.state, movieInformations]);
 
   return (
     <> 
@@ -120,6 +120,8 @@ function MovieDetailsItem() {
                 if(genresName){
                   return <GenreItem key={genre}>{genresName.name}</GenreItem>              
                 }
+
+                return;
               })}
 
             </GenreList>            
