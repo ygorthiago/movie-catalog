@@ -100,7 +100,7 @@ const MovieItem: React.FC<MovieItemProps> = ({movie}) => {
                 return <Category key={genre}>{genresName.name}</Category>              
               }
 
-              return;
+              return <span></span>;
           })}
         </GenreList>
       </MovieDescriptionContainer>

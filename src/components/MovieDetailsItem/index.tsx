@@ -121,7 +121,7 @@ function MovieDetailsItem() {
                   return <GenreItem key={genre}>{genresName.name}</GenreItem>              
                 }
 
-                return;
+                return <span></span>;
               })}
 
             </GenreList>            
